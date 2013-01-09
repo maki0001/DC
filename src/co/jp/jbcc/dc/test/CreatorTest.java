@@ -95,7 +95,7 @@ public class CreatorTest {
 		try {
 			for( int i = 0; i < recordCount; i++){
 				for( CreatorBase creatorBase : creatorMap.keySet() ){
-					sb.append( creatorBase.getClass().getMethod(methodName, DataSchema.class).invoke( creatorBase, new Object[]{ creatorMap.get(creatorBase)}) )
+					sb.append( creatorBase.getClass().getMethod(methodName, DataSchema.class).invoke( creatorBase, new Object[]{ creatorMap.get(creatorBase) }) )
 						.append(separator);
 				}
 				sb.append("\n");

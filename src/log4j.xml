@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+   <!-- ********************** レイアウト書式 ***********************
+       %r アプリ起動から何ミリ秒たったか
+       %d 日時　%d{dd MMM yyyy HH:mm:ss.SSS}
+
+       %t スレッド名
+       %x ネスト化診断コンテキスト(@see org.apache.log4j.NDC)
+       %X マップ化診断コンテキスト(@see org.apache.log4j.MDC)
+
+       %p レベル名(FATAL/ERROR/WARN/INFO/DEBUG)
+       %c カテゴリー名(クラス名) // LogFactoryで指定したもの
+
+       %m メッセージ
+
+       %n 改行コード
+       %% %
+
+       %10m     桁数が10桁未満のとき、左側にSPを追加して10桁にする
+       %.10m    桁数が10桁以上のとき、11桁目以降を削除して10桁にする
+       %10.20m  (左側にSPを足して)桁数を10桁～20桁にそろえる
+       %-10m    桁数が10桁未満のとき、右側にSPを追加して10桁にする
+       %-10.20m (右側にSPを足して)桁数を10桁～20桁にそろえる
+
+       ※パフォーマンス上の問題があるので避けるべき書式(StatcTraceから取得?)
+
+       %C クラス名
+       %M メソッド名
+       %l ファイル名・行番号
+       %F ファイル名
+       %L 行番号
+   -->
+
+   <!-- ********************** 標準出力への出力 ********************** -->
+   <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+
+       <!-- デフォルトのログレベル -->
+       <param name="threshold" value="debug" />
+
+       <!-- レイアウトの指定 -->
+       <layout class="org.apache.log4j.PatternLayout">
+           <param name="ConversionPattern"
+                  value="%d{yyyy/MM/dd HH:mm:ss.SSS} [%p] %C %M %l %m%n" />
+       </layout>
+   </appender>
+
+   <!-- ********************** ファイルへの出力 ********************** -->
+   <appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
+
+       <!-- デフォルトのログレベル -->
+       <param name="threshold" value="info" />
+
+       <!-- ファイル情報 -->
+       <param name="file" value="dc.log" />
+       <param name="append" value="false" />
+       <param name="datePattern" value="'.'yyyy-MM-dd" />
+       <!--
+           ファイルローテートの指定
+           '.'yyyy       年の変わり目(1月1日の0時)
+           '.'yyyy-MM    月の変わり目(1日の0時)
+           '.'yyyy-ww    週の変わり目(日曜の0時)
+           '.'yyyy-MM-dd 日の変わり目(0時)
+       -->
+
+       <!-- レイアウトの指定 -->
+       <layout class="org.apache.log4j.PatternLayout">
+           <param name="ConversionPattern"
+                  value="%d{yyyy/MM/dd HH:mm:ss.SSS} [%p] %C %M %l %m%n" />
+       </layout>
+   </appender>
+
+   <!-- ********************** root定義 ***************************** -->
+   <root>
+       <priority value="info" />
+       <appender-ref ref="STDOUT" />
+       <appender-ref ref="FILE" />
+       <!--
+       <appender-ref ref="SOCKET" />
+        -->
+   </root>
+
+</log4j:configuration>
