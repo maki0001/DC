@@ -18,6 +18,6 @@ public abstract class CreatorBase {
 
 	protected String result;
 
-	protected abstract String createTextData( DataSchema dataSchema );
+	protected abstract String createTextData( DataSchema dataSchema ) throws Exception;
 
 }

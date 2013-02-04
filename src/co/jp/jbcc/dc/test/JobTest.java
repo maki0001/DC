@@ -11,10 +11,10 @@ public class JobTest {
 
 		String[] args = new String[]{
 				"DataCreateJob"
-				, "20"
-				, "space"
+				, "10"
+				, "tab"
 				, "createTextData"
-				, "select * from DATA_SCHEMA where ID = 1"
+				, "select * from DATA_SCHEMA where ID = 4"
 			};
 
 		JobBase.main(args);

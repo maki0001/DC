@@ -32,7 +32,7 @@ public class CreatorTest {
 			con = DriverManager.getConnection("jdbc:derby:DATA_CREATOR");
 
 			Statement stmt = con.createStatement();
-			ResultSet row = stmt.executeQuery("select * from DATA_SCHEMA where ID = 2");
+			ResultSet row = stmt.executeQuery("select * from DATA_SCHEMA where ID = 3");
 			while( row.next() ){
 				ResultSetMetaData rsm = row.getMetaData();
 				int i = 0;

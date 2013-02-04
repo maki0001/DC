@@ -20,7 +20,7 @@ public class ZipDataCreator extends CreatorBase {
 
 		for( int i = 0; i<format.length(); i++){
 			if( format.substring(i, i+1).equals("x") ){
-				sb.append( Math.round(Math.random() * 10) );
+				sb.append( Math.round(Math.random() * 9) );
 			}else{
 				sb.append("-");
 			}

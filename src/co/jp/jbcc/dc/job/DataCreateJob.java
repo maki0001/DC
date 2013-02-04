@@ -74,9 +74,11 @@ public class DataCreateJob extends JobBase{
 				}
 			}
 			for( int i = 0; i < recordCount; i++){
+				int j = 1;
 				for( CreatorBase creatorBase : creatorMap.keySet() ){
-					sb.append( creatorBase.getClass().getMethod(methodName, DataSchema.class).invoke( creatorBase, new Object[]{ creatorMap.get(creatorBase) }) )
-						.append(separator);
+					sb.append( creatorBase.getClass().getMethod(methodName, DataSchema.class).invoke( creatorBase, new Object[]{ creatorMap.get(creatorBase) }) );
+					if( j < creatorMap.size() ) sb.append(separator);
+					j++;
 				}
 				sb.append(Constants.CRLF);
 			}

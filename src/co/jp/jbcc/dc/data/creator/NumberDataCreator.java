@@ -26,14 +26,8 @@ public class NumberDataCreator extends CreatorBase {
 		if( endNumber == 0 ) endNumber = Integer.parseInt(dataSchema.getOption().get(2));
 
 		if( format.equals(OPTION_FORMAT.random.toString())){
-			long random = Math.round(endNumber * Math.random());
-			if( random <= (endNumber - startNumber) ){
-				result = StringUtils.leftPad( String.valueOf(random + startNumber)
-							, dataSchema.getSize(), '0') ;
-			}else{
-				result = StringUtils.leftPad( String.valueOf( random )
-							, dataSchema.getSize(), '0');
-			}
+			result = StringUtils.leftPad( String.valueOf( (int)Math.floor(Math.random()*(endNumber - startNumber +1)) + startNumber )
+			, dataSchema.getSize(), '0');
 		}else{
 			result = StringUtils.leftPad( String.valueOf(startNumber), dataSchema.getSize(), '0' ) ;
 			startNumber++;
