@@ -1,5 +1,10 @@
 package co.jp.jbcc.dc.job;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -18,9 +23,13 @@ public class DataCreateJob extends JobBase{
 	private static final Logger LOGGER = Logger.getLogger(DataCreateJob.class);
 
 	private int recordCount;
+	private int fileSize;
 	private String separator;
 	private String methodName;
 	private String query;
+	private String outputPath;
+	private String charCode;
+	private static String outputFileName;
 
 	@Override
 	protected void init( String[] args ) {
@@ -28,6 +37,8 @@ public class DataCreateJob extends JobBase{
 		separator = Constants.SEPARATOR_MAP.get(args[1]);
 		methodName = args[2];
 		query = args[3];
+		outputPath = args[4];
+		charCode = Constants.CHAR_CODE_MAP.get(args[5]);
 	}
 
 	@Override
@@ -35,7 +46,7 @@ public class DataCreateJob extends JobBase{
 
 		LOGGER.info("********************* run ********************");
 
-		if( args == null || args.length < 3 ){
+		if( args == null || args.length < 6 ){
 			LOGGER.warn("引数が正しくありません。");
 			return -1;
 		}
@@ -48,6 +59,19 @@ public class DataCreateJob extends JobBase{
 			LOGGER.error("検索結果がありません。");
 			return -1;
 		}
+		outputFileName = dataSchemaDto.getFileName();
+
+		File[] outputFiles = new File(outputPath).listFiles( new FilenameFilter() {
+
+			@Override
+			public boolean accept(File dir, String name) {
+				return name.equals( outputFileName );
+			}
+		});
+		for( File f : outputFiles ){
+			f.delete();
+		}
+		File outputFile = new File( outputPath + "/" + dataSchemaDto.getFileName() );
 
 		//追加順を保持するためにLinkedHashMapを使用
 		DataSchema[] dataSchemas = DataSchema.getDataSchema(dataSchemaDto.getSchemaText());
@@ -64,8 +88,12 @@ public class DataCreateJob extends JobBase{
 			}
 		}
 
+		OutputStream os = null;
 		StringBuilder sb = new StringBuilder();
 		try {
+
+			os = new FileOutputStream(outputFile);
+
 			//ヘッダー出力
 			for( DataSchema dataSchema : dataSchemas ){
 				sb.append(dataSchema.getHeader()).append(separator);
@@ -81,10 +109,19 @@ public class DataCreateJob extends JobBase{
 					j++;
 				}
 				sb.append(Constants.CRLF);
+				os.write( sb.toString().getBytes(charCode) );
+				sb.setLength(0);
 			}
 
 		} catch ( Exception e ) {
 			LOGGER.error("エラーが発生しました。", e);
+		}finally{
+			if( os != null ){
+				try {
+					os.flush();
+					os.close();
+				} catch (IOException e) {}
+			}
 		}
 
 		System.out.println(sb.toString());
