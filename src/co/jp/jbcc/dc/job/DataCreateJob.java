@@ -96,9 +96,11 @@ public class DataCreateJob extends JobBase{
 
 			//ヘッダー出力
 			for( DataSchema dataSchema : dataSchemas ){
-				sb.append(dataSchema.getHeader()).append(separator);
+				sb.append(dataSchema.getHeader());
 				if( ArrayUtils.indexOf(dataSchemas, dataSchema) == dataSchemas.length-1 ){
 					sb.append(Constants.CRLF);
+				}else{
+					sb.append(separator);
 				}
 			}
 			for( int i = 0; i < recordCount; i++){
@@ -111,6 +113,7 @@ public class DataCreateJob extends JobBase{
 				sb.append(Constants.CRLF);
 				os.write( sb.toString().getBytes(charCode) );
 				sb.setLength(0);
+				System.out.println(i);
 			}
 
 		} catch ( Exception e ) {

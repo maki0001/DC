@@ -11,7 +11,7 @@ public class JobTest {
 
 		String[] args = new String[]{
 				"DataCreateJob"
-				, "20000"
+				, "100000"
 				, "comma"
 				, "createTextData"
 				, "select * from DATA_SCHEMA where FILE_NAME = 'category.csv'"
@@ -27,7 +27,7 @@ public class JobTest {
 
 		String[] args = new String[]{
 				"DataCreateJob"
-				, "10000"
+				, "50000000"
 				, "comma"
 				, "createTextData"
 				, "select * from DATA_SCHEMA where FILE_NAME = 'item.csv'"
@@ -43,7 +43,7 @@ public class JobTest {
 
 		String[] args = new String[]{
 				"DataCreateJob"
-				, "10000"
+				, "500"
 				, "comma"
 				, "createTextData"
 				, "select * from DATA_SCHEMA where FILE_NAME = 'store.csv'"
@@ -59,10 +59,26 @@ public class JobTest {
 
 		String[] args = new String[]{
 				"DataCreateJob"
-				, "10"
-				, "tab"
+				, "100"
+				, "comma"
 				, "createTextData"
 				, "select * from DATA_SCHEMA where FILE_NAME = 'posItem.csv'"
+				, "C:\\Users\\J32200\\workspace\\data\\DataCreator\\work"
+				, "utf-8"
+			};
+
+		JobBase.main(args);
+	}
+
+	@Test
+	public void outputPosItem1rowCsvTest(){
+
+		String[] args = new String[]{
+				"DataCreateJob"
+				, "1250000"
+				, "comma"
+				, "createTextData"
+				, "select * from DATA_SCHEMA where FILE_NAME = 'posItem_1row.csv'"
 				, "C:\\Users\\J32200\\workspace\\data\\DataCreator\\work"
 				, "utf-8"
 			};

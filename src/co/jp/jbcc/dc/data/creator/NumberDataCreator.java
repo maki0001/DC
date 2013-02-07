@@ -41,9 +41,9 @@ public class NumberDataCreator extends CreatorBase {
 			throw new NumberFormatException("最小値が最大値を超えています。(" + dataSchema.getHeader() + ")");
 		}
 
-		if( String.valueOf(endNumber).length() > dataSchema.getSize() ){
-			throw new NumberFormatException("最大値の桁数が指定桁数を超えています。(" + dataSchema.getHeader() + ")");
-		}
+//		if( String.valueOf(endNumber).length() > dataSchema.getSize() ){
+//			throw new NumberFormatException("最大値の桁数が指定桁数を超えています。(" + dataSchema.getHeader() + ")");
+//		}
 
 		if( format.equals(OPTION_FORMAT.random.toString()) ){
 			result = StringUtils.leftPad( String.valueOf( (int)Math.floor(Math.random()*(endNumber - startNumber +1)) + startNumber )
