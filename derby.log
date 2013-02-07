@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Thu Feb 07 16:18:07 JST 2013:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-013c-b384-bf3d-000000bf4530 
-on database directory C:\Users\J32200\workspace\data\DataCreator\DATA_CREATOR  with class loader sun.misc.Launcher$AppClassLoader@4b29cf 
-Loaded from file:/C:/Users/J32200/workspace/data/DataCreator/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_10-b18
-user.dir=C:\Users\J32200\workspace\data\DataCreator
+Thu Feb 07 18:10:13 JST 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-013c-b3eb-60e2-000006b458d8 
+on database directory /home/jbcc/dev/workspace/data/DataCreator/DATA_CREATOR  with class loader sun.misc.Launcher$AppClassLoader@1f7182c1 
+Loaded from file:/home/jbcc/dev/workspace/data/DataCreator/lib/derby.jar
+java.vendor=Sun Microsystems Inc.
+java.runtime.version=1.6.0_31-b04
+user.dir=/home/jbcc/dev/workspace/data/DataCreator
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

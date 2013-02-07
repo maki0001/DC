@@ -5,6 +5,8 @@ import org.junit.Test;
 import co.jp.jbcc.dc.job.JobBase;
 
 public class JobTest {
+	
+	private String outputPath = "/home/jbcc/dev/workspace/data/DataCreator/work";
 
 	@Test
 	public void outputCategoryCsvTest(){
@@ -15,7 +17,7 @@ public class JobTest {
 				, "comma"
 				, "createTextData"
 				, "select * from DATA_SCHEMA where FILE_NAME = 'category.csv'"
-				, "C:\\Users\\J32200\\workspace\\data\\DataCreator\\work"
+				, outputPath
 				, "utf-8"
 			};
 
@@ -27,11 +29,11 @@ public class JobTest {
 
 		String[] args = new String[]{
 				"DataCreateJob"
-				, "50000000"
+				, "10000000"
 				, "comma"
 				, "createTextData"
 				, "select * from DATA_SCHEMA where FILE_NAME = 'item.csv'"
-				, "C:\\Users\\J32200\\workspace\\data\\DataCreator\\work"
+				, outputPath
 				, "utf-8"
 			};
 
@@ -43,11 +45,11 @@ public class JobTest {
 
 		String[] args = new String[]{
 				"DataCreateJob"
-				, "500"
+				, "100"
 				, "comma"
 				, "createTextData"
 				, "select * from DATA_SCHEMA where FILE_NAME = 'store.csv'"
-				, "C:\\Users\\J32200\\workspace\\data\\DataCreator\\work"
+				, outputPath
 				, "utf-8"
 			};
 
@@ -63,7 +65,7 @@ public class JobTest {
 				, "comma"
 				, "createTextData"
 				, "select * from DATA_SCHEMA where FILE_NAME = 'posItem.csv'"
-				, "C:\\Users\\J32200\\workspace\\data\\DataCreator\\work"
+				, outputPath
 				, "utf-8"
 			};
 
@@ -75,11 +77,11 @@ public class JobTest {
 
 		String[] args = new String[]{
 				"DataCreateJob"
-				, "1250000"
+				, "100000"
 				, "comma"
 				, "createTextData"
 				, "select * from DATA_SCHEMA where FILE_NAME = 'posItem_1row.csv'"
-				, "C:\\Users\\J32200\\workspace\\data\\DataCreator\\work"
+				, outputPath
 				, "utf-8"
 			};
 

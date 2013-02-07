@@ -19,12 +19,13 @@ import co.jp.jbcc.dc.common.Constants;
 public abstract class DaoBase {
 
 	private static final Logger LOGGER = Logger.getLogger(DaoBase.class);
+	protected Connection con;
 
 	protected <T> T bind2Dto( String dbName, String query, Class<T> returnClass ){
 
 		Field[] fields = returnClass.getDeclaredFields();
 		T result = null;
-		Connection con = null;
+		con = null;
 		try{
 			con = DriverManager.getConnection( Constants.DERBY_DRIVER + dbName );
 			Statement stmt = con.createStatement();
@@ -70,7 +71,6 @@ public abstract class DaoBase {
 
 		Field[] fields = returnClass.getDeclaredFields();
 		List<T> results = new ArrayList<T>();
-		Connection con = null;
 		try{
 			con = DriverManager.getConnection( Constants.DERBY_DRIVER + dbName );
 			Statement stmt = con.createStatement();
