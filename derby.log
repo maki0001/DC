@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Thu Feb 07 18:10:13 JST 2013:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-013c-b3eb-60e2-000006b458d8 
-on database directory /home/jbcc/dev/workspace/data/DataCreator/DATA_CREATOR  with class loader sun.misc.Launcher$AppClassLoader@1f7182c1 
+Fri Feb 08 18:27:47 JST 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-013c-b921-d4f2-000006bde268 
+on database directory /home/jbcc/dev/workspace/data/DataCreator/DATA_CREATOR  with class loader sun.misc.Launcher$AppClassLoader@35a16869 
 Loaded from file:/home/jbcc/dev/workspace/data/DataCreator/lib/derby.jar
 java.vendor=Sun Microsystems Inc.
 java.runtime.version=1.6.0_31-b04

@@ -1,2 +1,2 @@
-2013/02/07 18:10:12.599 [INFO] co.jp.jbcc.dc.job.JobBase main co.jp.jbcc.dc.job.JobBase.main(JobBase.java:28) ********************* Start job ********************
-2013/02/07 18:10:12.625 [INFO] co.jp.jbcc.dc.job.DataCreateJob run co.jp.jbcc.dc.job.DataCreateJob.run(DataCreateJob.java:47) ********************* run ********************
+2013/02/08 18:27:47.364 [INFO] co.jp.jbcc.dc.job.JobBase main co.jp.jbcc.dc.job.JobBase.main(JobBase.java:28) ********************* Start job ********************
+2013/02/08 18:27:47.374 [INFO] co.jp.jbcc.dc.job.DataCreateJob run co.jp.jbcc.dc.job.DataCreateJob.run(DataCreateJob.java:47) ********************* run ********************
